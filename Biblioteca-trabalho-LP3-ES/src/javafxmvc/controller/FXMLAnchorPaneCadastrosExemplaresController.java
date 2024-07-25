@@ -3,6 +3,7 @@ package javafxmvc.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -93,40 +94,22 @@ public class FXMLAnchorPaneCadastrosExemplaresController implements Initializabl
     
     }
     
-  /*  @FXML
-    private void handleButtonInserir(ActionEvent event) {
-        try {
-            
-            Editora editora = comboBoxEditoraNome.getSelectionModel().getSelectedItem();
-
-            if (livro == null) {
-                throw new IllegalArgumentException("Livro cannot be null when inserting Exemplar.");
-            }
-            
-            if (editora == null) {
-                throw new IllegalArgumentException("Editora cannot be null when inserting Exemplar.");
-            }
-
-            Exemplar exemplar = new Exemplar();
-            exemplar.setLivro(livro);
-            exemplar.setEditora(editora);
-            exemplarDAO.inserir(exemplar);
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText(null);
-            alert.setContentText("Exemplar inserted successfully!");
-            alert.showAndWait();
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Error inserting Exemplar: " + e.getMessage());
-            alert.showAndWait();
+    @FXML
+    public void handleButtonInserir() throws IOException {
+        Exemplar exemplar = new Exemplar();
+        boolean buttonConfirmarClicked = showFXMLAnchorPaneCadastrosExemplaresDialog(exemplar);
+        if (buttonConfirmarClicked) {
+           try {
+			exemplarDAO.inserir(exemplar);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+            carregarTableViewExemplares();
         }
     }
     
-    */
+   
 
     public void carregarTableViewExemplares() {
     	tableColumnExemplarLivro.setCellValueFactory(cellData -> {

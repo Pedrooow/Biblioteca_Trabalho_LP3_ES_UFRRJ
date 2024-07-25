@@ -43,5 +43,6 @@
       </Text>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" />
       <ImageView fx:id="imagembiblioteca" fitHeight="192.0" fitWidth="263.0" pickOnBounds="true" preserveRatio="true" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PEDRO COLLARES XAVIER - KAWAN MATHEUS DUARTE RODRIGUES  KAUA SANTOS LIMA - ERICK ROBERTO THEODORO DA SILVA" wrappingWidth="371.5703125" />
    </children>
 </VBox>
